@@ -1,0 +1,67 @@
+.movies-page {
+  min-height: 80vh;
+
+  padding: 70px 30px;
+
+  background: #f8fbff;
+}
+
+.page-heading {
+  text-align: center;
+
+  margin-bottom: 50px;
+}
+
+.page-heading span {
+  color: #2563eb;
+
+  font-weight: 800;
+
+  font-size: 14px;
+}
+
+.page-heading h1 {
+  color: #172554;
+
+  font-size: 45px;
+
+  font-weight: 900;
+
+  margin: 10px 0;
+}
+
+.page-heading p {
+  color: #64748b;
+
+  font-size: 18px;
+}
+
+.movies-grid {
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 30px;
+}
+
+@media (max-width: 900px) {
+
+  .movies-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .movies-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

@@ -1,0 +1,42 @@
+.reviews-page {
+  min-height: 80vh;
+
+  padding: 70px 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8fbff,
+      #eff6ff
+    );
+}
+
+.reviews-grid {
+  max-width: 1100px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+@media (max-width: 900px) {
+
+  .reviews-grid {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
