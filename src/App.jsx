@@ -1,8 +1,10 @@
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+import Intro from "./pages/Intro";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 import Reviews from "./pages/Reviews";
@@ -16,57 +18,76 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-
-      <Header />
-
       <Routes>
+        {/* Intro video - public entry page */}
+        <Route path="/" element={<Intro />} />
 
-        {/* HOME - PUBLIC */}
+        {/* Home - public */}
         <Route
-          path="/"
-          element={<Home />}
+          path="/home"
+          element={
+            <>
+              <Header />
+              <Home />
+              <Footer />
+            </>
+          }
         />
 
-        {/* LOGIN - PUBLIC */}
+        {/* Login - public */}
         <Route
           path="/login"
-          element={<Login />}
+          element={
+            <>
+              <Header />
+              <Login />
+              <Footer />
+            </>
+          }
         />
 
-        {/* MOVIES - PROTECTED */}
+        {/* Movies - protected */}
         <Route
           path="/movies"
           element={
             <ProtectedRoute>
-              <Movies />
+              <>
+                <Header />
+                <Movies />
+                <Footer />
+              </>
             </ProtectedRoute>
           }
         />
 
-        {/* REVIEWS - PROTECTED */}
+        {/* Reviews - protected */}
         <Route
           path="/reviews"
           element={
             <ProtectedRoute>
-              <Reviews />
+              <>
+                <Header />
+                <Reviews />
+                <Footer />
+              </>
             </ProtectedRoute>
           }
         />
 
-        {/* COMMUNITY - PROTECTED */}
+        {/* Community - protected */}
         <Route
           path="/community"
           element={
             <ProtectedRoute>
-              <Community />
+              <>
+                <Header />
+                <Community />
+                <Footer />
+              </>
             </ProtectedRoute>
           }
         />
-
       </Routes>
-
-      <Footer />
-
     </BrowserRouter>
   );
 }

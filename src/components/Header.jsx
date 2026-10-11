@@ -13,7 +13,7 @@ function Header() {
 
         <nav className="nav-menu">
 
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
 
           <Link to="/movies">Movies</Link>
 
