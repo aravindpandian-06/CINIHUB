@@ -2,7 +2,6 @@ import ReviewCard from "../components/ReviewCard";
 import "./Reviews.css";
 
 function Reviews() {
-
   const reviews = [
     {
       name: "Arun",
@@ -29,35 +28,22 @@ function Reviews() {
 
   return (
     <section className="reviews-page">
-
       <div className="page-heading">
-
-        <span>⭐ COMMUNITY OPINIONS</span>
-
-        <h1>
-          Movie Reviews
-        </h1>
-
+        <span className="section-badge">⭐ AUDIENCE CRITIQUE ARCHIVE</span>
+        <h1>Movie Reviews</h1>
         <p>
-          See what movie lovers are saying.
+          Unvarnished impressions and vintage dispatch reviews from fellow cinephiles.
         </p>
-
       </div>
 
-
       <div className="reviews-grid">
-
         {reviews.map((review, index) => (
-
           <ReviewCard
             key={index}
             review={review}
           />
-
         ))}
-
       </div>
-
     </section>
   );
 }

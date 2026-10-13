@@ -1,26 +1,145 @@
-* {
+/* ==========================================================================
+   CINIHUB VINTAGE CINEMA DESIGN SYSTEM
+   Retro Crime & Vintage Exploitation Film Aesthetic (Orange / Charcoal / Cream)
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --color-primary-orange: #FF6B00;
+  --color-burnt-orange: #C94700;
+  --color-golden-yellow: #FFC247;
+  --color-warm-cream: #FFF5E9;
+  --color-warm-cream-muted: #F0DFC8;
+  --color-dark-charcoal: #171310;
+  --color-cinema-black: #0C0A08;
+  --color-card-bg: #1F1A15;
+  --color-card-surface: #26201B;
+  --color-border-orange: rgba(255, 107, 0, 0.35);
+  --color-border-gold: rgba(255, 194, 71, 0.4);
+  --color-border-cream: rgba(255, 245, 233, 0.15);
+  --color-text-light: #FFF5E9;
+  --color-text-muted: #D3C3AF;
+  --color-text-dark: #171310;
+
+  /* Typography
+     Note: Aachen Bold is a proprietary vintage typeface.
+     We specify local 'Aachen Bold' / 'Aachen' first, with legally available
+     'Alfa Slab One' and heavy slab fallbacks as visual equivalent. */
+  --font-aachen: "Aachen Bold", "Aachen", "Alfa Slab One", "Ultra", "Impact", serif;
+  --font-nav: "Lucida Handwriting", "Apple Chancery", "Brush Script MT", "Caveat", cursive;
+  --font-poster: "Bebas Neue", "Impact", sans-serif;
+  --font-body: "Outfit", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Shadows & Glows */
+  --shadow-dramatic: 0 16px 36px rgba(0, 0, 0, 0.65), 0 2px 6px rgba(255, 107, 0, 0.2);
+  --shadow-poster: 8px 8px 0px #0C0A08, 0 15px 30px rgba(0, 0, 0, 0.7);
+  --shadow-ticket: 5px 5px 0px #C94700;
+  --glow-orange: 0 0 22px rgba(255, 107, 0, 0.45);
+  --glow-gold: 0 0 20px rgba(255, 194, 71, 0.35);
+
+  /* Transitions */
+  --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--color-cinema-black);
 }
 
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f4f9ff;
-  color: #172554;
+  font-family: var(--font-body);
+  background-color: var(--color-cinema-black);
+  color: var(--color-text-light);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
 }
 
-button,
-input,
-textarea,
-select {
+/* Subtle Film Grain Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: radial-gradient(#FFC247 1px, transparent 0), radial-gradient(#FF6B00 1px, transparent 0);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+}
+
+/* Custom Text Selection */
+::selection {
+  background: var(--color-primary-orange);
+  color: var(--color-cinema-black);
+}
+
+/* Form & Interactive Elements */
+button, input, textarea, select {
   font-family: inherit;
 }
 
 a {
+  color: inherit;
   text-decoration: none;
+}
+
+/* Custom Cinematic Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cinema-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-burnt-orange);
+  border-radius: 4px;
+  border: 2px solid var(--color-cinema-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-orange);
+}
+
+/* Film Strip Perforation Border Utility */
+.film-strip-border {
+  position: relative;
+}
+
+.film-strip-border::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-primary-orange) 0px,
+    var(--color-primary-orange) 10px,
+    transparent 10px,
+    transparent 16px
+  );
+  opacity: 0.85;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -1,251 +1,293 @@
+/* ==========================================================================
+   Home Page - Bold Vintage Cinema & Marquee Art Direction
+   ========================================================================== */
+
 .home-page {
-  min-height: 80vh;
+  min-height: 85vh;
   background:
-    radial-gradient(circle at top left, #dbeafe, transparent 35%),
-    radial-gradient(circle at bottom right, #e0f2fe, transparent 35%),
-    #f8fbff;
+    radial-gradient(circle at 18% 18%, rgba(255, 107, 0, 0.16) 0%, transparent 48%),
+    radial-gradient(circle at 82% 75%, rgba(201, 71, 0, 0.18) 0%, transparent 48%),
+    radial-gradient(ellipse at 50% 0%, rgba(255, 194, 71, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, var(--color-cinema-black) 0%, var(--color-dark-charcoal) 50%, #0d0a08 100%);
+  color: var(--color-warm-cream);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Hero Section */
 .home-hero {
-  max-width: 1200px;
-  margin: auto;
-
+  max-width: 1280px;
+  margin: 0 auto;
   min-height: 600px;
-
-  padding: 70px 30px;
-
+  padding: 80px 32px 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 60px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-text {
-  flex: 1;
+  flex: 1.1;
 }
 
+/* Vintage Marquee Badge */
 .hero-badge {
-  display: inline-block;
-
-  padding: 9px 18px;
-
-  border-radius: 30px;
-
-  background: #dbeafe;
-  color: #2563eb;
-
-  font-size: 14px;
-  font-weight: 800;
-
-  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 4px;
+  background: rgba(255, 107, 0, 0.14);
+  border: 1px solid var(--color-golden-yellow);
+  color: var(--color-golden-yellow);
+  font-family: var(--font-poster);
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  box-shadow: 0 0 16px rgba(255, 107, 0, 0.25);
 }
 
+/* Bold Aachen Bold Style Headline */
 .hero-text h1 {
-  font-size: 58px;
-
+  font-family: var(--font-aachen);
+  font-size: clamp(38px, 5.2vw, 64px);
   line-height: 1.1;
-
   font-weight: 900;
-
-  color: #172554;
-
-  margin-bottom: 20px;
+  color: var(--color-warm-cream);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 22px;
+  text-shadow:
+    3px 3px 0px var(--color-burnt-orange),
+    5px 5px 0px #0c0a08,
+    0 0 30px rgba(255, 107, 0, 0.35);
 }
 
 .hero-text h1 span {
   display: block;
-  color: #2563eb;
+  color: var(--color-golden-yellow);
+  text-shadow:
+    3px 3px 0px var(--color-burnt-orange),
+    5px 5px 0px #0c0a08;
 }
 
 .hero-text p {
   max-width: 600px;
-
-  font-size: 19px;
-
+  font-size: clamp(17px, 1.6vw, 20px);
   line-height: 1.7;
-
-  color: #64748b;
-
-  margin-bottom: 30px;
+  color: var(--color-text-muted);
+  margin-bottom: 36px;
 }
 
+/* Ticket Buttons */
 .hero-buttons {
   display: flex;
-
-  gap: 15px;
-
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .primary-btn,
 .secondary-btn {
-  padding: 13px 25px;
-
-  border-radius: 30px;
-
-  font-weight: 700;
-
+  padding: 15px 32px;
+  border-radius: 6px;
+  font-family: var(--font-poster);
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   text-decoration: none;
-
-  transition: 0.3s;
+  cursor: pointer;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), background var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .primary-btn {
-  color: white;
-
-  background: linear-gradient(
-    135deg,
-    #2563eb,
-    #0ea5e9
-  );
-
+  color: var(--color-cinema-black);
+  background: linear-gradient(135deg, var(--color-golden-yellow) 0%, var(--color-primary-orange) 50%, var(--color-burnt-orange) 100%);
+  border: 2px solid var(--color-golden-yellow);
   box-shadow:
-    0 10px 25px rgba(37, 99, 235, 0.25);
+    4px 4px 0px #0c0a08,
+    0 8px 24px rgba(255, 107, 0, 0.45);
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    6px 6px 0px #0c0a08,
+    0 12px 30px rgba(255, 107, 0, 0.65),
+    0 0 20px var(--color-golden-yellow);
+  color: var(--color-cinema-black);
 }
 
 .secondary-btn {
-  color: #2563eb;
-
-  background: white;
-
-  border: 2px solid #bfdbfe;
+  color: var(--color-warm-cream);
+  background: rgba(31, 26, 21, 0.8);
+  border: 2px solid var(--color-primary-orange);
+  box-shadow: 4px 4px 0px #0c0a08;
+  backdrop-filter: blur(8px);
 }
 
-.primary-btn:hover,
 .secondary-btn:hover {
+  background: rgba(255, 107, 0, 0.18);
+  border-color: var(--color-golden-yellow);
+  color: var(--color-golden-yellow);
   transform: translateY(-3px);
+  box-shadow:
+    6px 6px 0px #0c0a08,
+    0 0 20px rgba(255, 107, 0, 0.35);
 }
 
+/* Hero Visual & Reel Graphics */
 .hero-visual {
-  flex: 0.8;
-
-  min-height: 400px;
-
+  flex: 0.9;
+  min-height: 420px;
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   position: relative;
 }
 
 .movie-circle {
-  width: 280px;
-  height: 280px;
-
+  width: 290px;
+  height: 290px;
   border-radius: 50%;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
-  font-size: 120px;
-
+  font-size: 110px;
   background:
-    linear-gradient(
-      135deg,
-      #2563eb,
-      #38bdf8
-    );
-
+    radial-gradient(circle at 35% 35%, var(--color-golden-yellow) 0%, var(--color-primary-orange) 50%, var(--color-burnt-orange) 100%);
+  border: 5px solid var(--color-warm-cream);
   box-shadow:
-    0 25px 60px rgba(37, 99, 235, 0.3);
+    0 0 0 10px rgba(255, 107, 0, 0.25),
+    0 24px 60px rgba(0, 0, 0, 0.8),
+    0 0 50px rgba(255, 107, 0, 0.5);
+  animation: pulseReel 8s ease-in-out infinite alternate;
 }
 
+@keyframes pulseReel {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.03) rotate(6deg); }
+}
+
+/* Floating Retro Ticket Badges */
 .floating-card {
   position: absolute;
-
-  padding: 15px 20px;
-
-  border-radius: 15px;
-
-  background: white;
-
-  color: #172554;
-
-  font-weight: 800;
-
+  padding: 14px 22px;
+  border-radius: 6px;
+  background: var(--color-card-bg);
+  border: 2px solid var(--color-burnt-orange);
+  color: var(--color-golden-yellow);
+  font-family: var(--font-poster);
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   box-shadow:
-    0 12px 30px rgba(37, 99, 235, 0.15);
+    6px 6px 0px #0c0a08,
+    0 12px 28px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  transition: transform var(--transition-smooth);
 }
 
 .card-one {
-  top: 50px;
-  right: 0;
+  top: 35px;
+  right: -10px;
+  transform: rotate(3deg);
 }
 
 .card-two {
-  bottom: 60px;
-  left: 0;
+  bottom: 45px;
+  left: -15px;
+  transform: rotate(-4deg);
 }
 
+.floating-card:hover {
+  transform: translateY(-4px) scale(1.05);
+  border-color: var(--color-golden-yellow);
+}
+
+/* Feature Cards (Vintage Lobby Cards) */
 .home-features {
-  max-width: 1100px;
-
-  margin: auto;
-
-  padding: 20px 30px 70px;
-
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 32px 90px;
   display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  gap: 25px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  position: relative;
+  z-index: 1;
 }
 
 .feature-card {
-  padding: 30px;
-
-  background: white;
-
-  border-radius: 20px;
-
+  padding: 38px 28px;
+  background: var(--color-card-bg);
+  border: 2px solid rgba(255, 107, 0, 0.3);
+  border-radius: 10px;
   text-align: center;
-
   box-shadow:
-    0 10px 30px rgba(37, 99, 235, 0.08);
+    6px 6px 0px #0c0a08,
+    0 14px 32px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
 
-  transition: 0.3s;
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-burnt-orange), var(--color-primary-orange), var(--color-golden-yellow));
 }
 
 .feature-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
+  border-color: var(--color-primary-orange);
+  box-shadow:
+    8px 8px 0px #0c0a08,
+    0 20px 40px rgba(255, 107, 0, 0.25),
+    0 0 20px rgba(255, 107, 0, 0.2);
 }
 
 .feature-card > div {
-  font-size: 40px;
-
-  margin-bottom: 15px;
+  font-size: 48px;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
 }
 
 .feature-card h3 {
-  color: #172554;
-
-  margin-bottom: 10px;
+  font-family: var(--font-aachen);
+  color: var(--color-warm-cream);
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  text-shadow: 2px 2px 0px #0c0a08;
 }
 
 .feature-card p {
-  color: #64748b;
-
+  color: var(--color-text-muted);
   line-height: 1.6;
+  font-size: 16px;
 }
 
-@media (max-width: 768px) {
-
+/* Responsive adjustments */
+@media (max-width: 960px) {
   .home-hero {
     flex-direction: column;
-
     text-align: center;
-
     padding-top: 50px;
+    gap: 40px;
   }
 
   .hero-text h1 {
-    font-size: 42px;
+    font-size: 46px;
   }
 
   .hero-buttons {
@@ -254,10 +296,41 @@
 
   .hero-visual {
     width: 100%;
+    min-height: 340px;
+  }
+
+  .movie-circle {
+    width: 230px;
+    height: 230px;
+    font-size: 90px;
+  }
+
+  .home-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .home-hero {
+    padding: 40px 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 34px;
   }
 
   .home-features {
     grid-template-columns: 1fr;
+    padding: 10px 20px 60px;
   }
 
+  .card-one {
+    right: 0;
+    top: 10px;
+  }
+
+  .card-two {
+    left: 0;
+    bottom: 10px;
+  }
 }

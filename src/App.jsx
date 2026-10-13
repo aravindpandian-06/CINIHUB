@@ -46,6 +46,18 @@ function App() {
           }
         />
 
+        {/* Sign Up - public */}
+        <Route
+          path="/signup"
+          element={
+            <>
+              <Header />
+              <Login initialSignUp={true} />
+              <Footer />
+            </>
+          }
+        />
+
         {/* Movies - protected */}
         <Route
           path="/movies"

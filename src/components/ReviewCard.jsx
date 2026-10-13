@@ -1,35 +1,31 @@
 import "./ReviewCard.css";
 
 function ReviewCard({ review }) {
-
   return (
-    <div className="review-card">
-
+    <article className="review-card">
       <div className="review-user">
-
-        <div className="user-avatar">
+        <div className="user-avatar" aria-hidden="true">
           {review.name.charAt(0)}
         </div>
 
-        <div>
+        <div className="user-meta">
           <h4>{review.name}</h4>
-
-          <span>
-            {review.movie}
-          </span>
+          <span className="movie-subject">ON: {review.movie}</span>
         </div>
-
       </div>
 
-      <div className="review-rating">
-        {"⭐".repeat(review.rating)}
+      <div className="review-rating" aria-label={`Rating: ${review.rating} out of 5 stars`}>
+        {"★".repeat(review.rating)}
       </div>
 
-      <p>
+      <p className="review-quote">
         "{review.comment}"
       </p>
 
-    </div>
+      <div className="card-footer-stamp">
+        <span>VERIFIED AUDIENCE DISPATCH</span>
+      </div>
+    </article>
   );
 }
 
