@@ -30,10 +30,13 @@
 
 .hero-text {
   flex: 1.1;
+  position: relative;
 }
 
 /* Vintage Marquee Badge */
 .hero-badge {
+  position: relative;
+  z-index: 3;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -52,6 +55,8 @@
 
 /* Bold Aachen Bold Style Headline */
 .hero-text h1 {
+  position: relative;
+  z-index: 3;
   font-family: var(--font-aachen);
   font-size: clamp(38px, 5.2vw, 64px);
   line-height: 1.1;
@@ -74,7 +79,165 @@
     5px 5px 0px #0c0a08;
 }
 
+/* ==========================================================================
+   Reverse Right-To-Left Film Projection Reveal for Headline
+   ========================================================================== */
+
+/* Moving Light Sweep Bar at the leading edge of the projection beam */
+.headline-projection-sweep {
+  position: absolute;
+  top: -12px;
+  bottom: -12px;
+  width: 55px;
+  pointer-events: none;
+  z-index: 4;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.95) 45%,
+    rgba(255, 240, 200, 0.85) 70%,
+    transparent 100%
+  );
+  filter: blur(4px);
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+/* 1. Initial Projection Sequence (0 - 3.5s) */
+.hero-headline-projected.projecting {
+  /* Starts unprojected (clipped 100% from left, waiting for beam from projector on right) */
+  clip-path: inset(0 0 0 100%);
+  -webkit-clip-path: inset(0 0 0 100%);
+  animation: projectHeadlineRightToLeft 2.3s cubic-bezier(0.2, 0.85, 0.35, 1) 1.2s forwards;
+  will-change: clip-path, filter, color;
+}
+
+.hero-headline-projected.projecting span {
+  animation: projectSpanColors 2.3s cubic-bezier(0.2, 0.85, 0.35, 1) 1.2s forwards;
+  will-change: color, text-shadow;
+}
+
+.hero-headline-projected.projecting .headline-projection-sweep {
+  animation: sweepRightToLeft 1.6s cubic-bezier(0.2, 0.85, 0.35, 1) 1.2s forwards;
+}
+
+/* 2. Settled State (after 3.5s and on any subsequent re-renders) */
+.hero-headline-projected.projection-settled {
+  clip-path: none;
+  -webkit-clip-path: none;
+  filter: none;
+  color: var(--color-warm-cream);
+}
+
+.hero-headline-projected.projection-settled span {
+  color: var(--color-golden-yellow);
+}
+
+/* Keyframes: 1.2s - 2.8s: Headline reveals from right to left in white projection light;
+   2.8s - 3.5s: Transitions smoothly into original CINIHUB colors */
+@keyframes projectHeadlineRightToLeft {
+  0% {
+    clip-path: inset(0 0 0 100%);
+    -webkit-clip-path: inset(0 0 0 100%);
+    filter: brightness(2.2) drop-shadow(0 0 22px #FFFFFF);
+    color: #FFFFFF;
+  }
+  15% {
+    clip-path: inset(0 0 0 82%);
+    -webkit-clip-path: inset(0 0 0 82%);
+    filter: brightness(2.0) drop-shadow(0 0 18px rgba(255, 255, 255, 0.95));
+    color: #FFFFFF;
+  }
+  45% {
+    clip-path: inset(0 0 0 45%);
+    -webkit-clip-path: inset(0 0 0 45%);
+    filter: brightness(1.7) drop-shadow(0 0 14px rgba(255, 250, 235, 0.85));
+    color: #FFFDF8;
+  }
+  70% {
+    /* Complete heading revealed at ~2.8s */
+    clip-path: inset(0 0 0 0%);
+    -webkit-clip-path: inset(0 0 0 0%);
+    filter: brightness(1.4) drop-shadow(0 0 12px rgba(255, 235, 180, 0.7));
+    color: #FFF8EE;
+  }
+  85% {
+    /* Smoothly dissolving projection glow into original cream */
+    clip-path: inset(0 0 0 0%);
+    -webkit-clip-path: inset(0 0 0 0%);
+    filter: brightness(1.15) drop-shadow(0 0 6px rgba(255, 194, 71, 0.4));
+    color: var(--color-warm-cream);
+  }
+  100% {
+    /* Completely settled at 3.5s with original CINIHUB styling */
+    clip-path: inset(0 0 0 0%);
+    -webkit-clip-path: inset(0 0 0 0%);
+    filter: brightness(1) drop-shadow(0 0 0 transparent);
+    color: var(--color-warm-cream);
+  }
+}
+
+@keyframes projectSpanColors {
+  0%, 65% {
+    color: #FFFFFF;
+    text-shadow:
+      0 0 20px rgba(255, 255, 255, 0.95),
+      0 0 35px rgba(255, 220, 140, 0.7);
+  }
+  80% {
+    color: #FFE082;
+    text-shadow:
+      3px 3px 0px var(--color-burnt-orange),
+      5px 5px 0px #0c0a08,
+      0 0 20px rgba(255, 194, 71, 0.5);
+  }
+  100% {
+    color: var(--color-golden-yellow);
+    text-shadow:
+      3px 3px 0px var(--color-burnt-orange),
+      5px 5px 0px #0c0a08;
+  }
+}
+
+@keyframes sweepRightToLeft {
+  0% {
+    right: -10px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    right: calc(100% + 15px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-headline-projected.projecting,
+  .hero-headline-projected.projecting span {
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+    animation: none !important;
+    filter: none !important;
+    color: var(--color-warm-cream) !important;
+  }
+
+  .hero-headline-projected.projecting span {
+    color: var(--color-golden-yellow) !important;
+  }
+
+  .headline-projection-sweep {
+    display: none !important;
+  }
+}
+
 .hero-text p {
+  position: relative;
+  z-index: 3;
   max-width: 600px;
   font-size: clamp(17px, 1.6vw, 20px);
   line-height: 1.7;
@@ -84,6 +247,8 @@
 
 /* Ticket Buttons */
 .hero-buttons {
+  position: relative;
+  z-index: 5;
   display: flex;
   gap: 20px;
   flex-wrap: wrap;

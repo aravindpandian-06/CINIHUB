@@ -10,6 +10,8 @@ import Movies from "./pages/Movies";
 import Reviews from "./pages/Reviews";
 import Community from "./pages/Community";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import MovieDetails from "./pages/MovieDetails";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -72,6 +74,18 @@ function App() {
           }
         />
 
+        {/* Movie Details & Reviews */}
+        <Route
+          path="/movies/:movieId"
+          element={
+            <>
+              <Header />
+              <MovieDetails />
+              <Footer />
+            </>
+          }
+        />
+
         {/* Reviews - protected */}
         <Route
           path="/reviews"
@@ -94,6 +108,20 @@ function App() {
               <>
                 <Header />
                 <Community />
+                <Footer />
+              </>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* User Profile - protected */}
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <>
+                <Header />
+                <Profile />
                 <Footer />
               </>
             </ProtectedRoute>

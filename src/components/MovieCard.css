@@ -2,6 +2,13 @@
    MovieCard Component - Retro Cinema Poster Frame Styling
    ========================================================================== */
 
+.movie-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
 .movie-card {
   background: var(--color-card-bg);
   border: 3px solid var(--color-burnt-orange);

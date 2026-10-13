@@ -133,6 +133,277 @@
   box-shadow: 0 0 18px var(--color-golden-yellow);
 }
 
+/* ==========================================================================
+   Header Circular Avatar & Profile Dropdown
+   ========================================================================== */
+.header-profile-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Circular Avatar Button: Exactly ~40x40px, border-radius: 50%, aligned with nav */
+.header-avatar-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  background: var(--color-cinema-black);
+  border: 2px solid var(--color-golden-yellow);
+  box-shadow:
+    0 0 10px rgba(255, 107, 0, 0.4),
+    inset 0 0 4px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.header-avatar-btn:hover,
+.header-avatar-btn.open,
+.header-avatar-btn.active {
+  transform: scale(1.08);
+  border-color: #fff;
+  box-shadow:
+    0 0 16px rgba(255, 194, 71, 0.8),
+    0 0 6px var(--color-primary-orange);
+}
+
+/* Quick Dropdown Toggle Caret Button */
+.header-avatar-toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-golden-yellow);
+  cursor: pointer;
+  padding: 4px 2px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-smooth), color var(--transition-smooth);
+}
+
+.header-avatar-toggle-btn:hover,
+.header-avatar-toggle-btn.open {
+  color: #fff;
+  transform: translateY(1px);
+}
+
+/* Uploaded Image Avatar: 40x40px, border-radius: 50%, object-fit: cover */
+.header-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Default Circular User Icon (when no image uploaded) */
+.header-avatar-default {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, var(--color-burnt-orange) 0%, #171310 100%);
+  color: var(--color-golden-yellow);
+}
+
+.header-avatar-svg {
+  width: 22px;
+  height: 22px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
+}
+
+/* Profile Dropdown Menu Card */
+.header-profile-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 270px;
+  background: #171310;
+  border: 3px solid var(--color-burnt-orange);
+  outline: 1px dashed rgba(255, 194, 71, 0.4);
+  outline-offset: -5px;
+  border-radius: 8px;
+  padding: 16px 14px 14px;
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.9),
+    0 0 24px rgba(255, 107, 0, 0.35);
+  z-index: 1200;
+  text-align: left;
+  animation: dropdownSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dropdownSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.profile-dropdown-user-block {
+  padding: 2px 4px 6px;
+}
+
+.profile-badge {
+  display: inline-block;
+  font-family: var(--font-poster);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 900;
+  color: var(--color-primary-orange);
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+
+.profile-user-name {
+  font-family: var(--font-aachen);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-warm-cream);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 1px 1px 0px #0c0a08;
+}
+
+.profile-user-email {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Decorative Sprocket Perforations in Dropdown */
+.dropdown-film-strip-divider {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px auto 12px;
+}
+
+.dropdown-film-strip-divider span {
+  width: 10px;
+  height: 6px;
+  background: var(--color-cinema-black);
+  border: 1px solid var(--color-burnt-orange);
+  border-radius: 1px;
+}
+
+/* Dropdown Alerts */
+.dropdown-status-msg {
+  font-size: 11px;
+  font-weight: 700;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid #059669;
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.dropdown-error-msg {
+  font-size: 11px;
+  font-weight: 700;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid #dc2626;
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Dropdown Actions */
+.profile-dropdown-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dropdown-item-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  background: #110e0c;
+  color: var(--color-warm-cream);
+  border: 1px solid rgba(255, 107, 0, 0.25);
+  border-radius: 5px;
+  font-family: var(--font-poster);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.dropdown-item-icon {
+  font-size: 14px;
+}
+
+.dropdown-item-btn:hover:not(:disabled) {
+  background: #1f1814;
+  border-color: var(--color-golden-yellow);
+  color: var(--color-golden-yellow);
+  transform: translateX(2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.dropdown-item-btn.remove-btn {
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.dropdown-item-btn.remove-btn:hover:not(:disabled) {
+  background: #2a1210;
+  border-color: #ef4444;
+  color: #f87171;
+}
+
+.dropdown-perforation {
+  height: 1px;
+  border-top: 1px dashed rgba(255, 107, 0, 0.35);
+  margin: 4px 0;
+}
+
+.dropdown-item-btn.logout-btn {
+  background: rgba(201, 71, 0, 0.18);
+  border-color: var(--color-burnt-orange);
+  color: var(--color-warm-cream);
+}
+
+.dropdown-item-btn.logout-btn:hover:not(:disabled) {
+  background: var(--color-burnt-orange);
+  color: #fff;
+  border-color: var(--color-golden-yellow);
+  box-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+}
+
+.dropdown-item-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* Responsive Navigation */
 @media (max-width: 900px) {
   .header-container {

@@ -1,7 +1,24 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import FilmProjectorAnimation from "../components/FilmProjectorAnimation";
 import "./Home.css";
 
+// Track session projection state so React re-renders do not replay the text reveal
+let sessionProjectionDone = false;
+
 function Home() {
+  const [isProjectionSettled, setIsProjectionSettled] = useState(sessionProjectionDone);
+
+  useEffect(() => {
+    if (!sessionProjectionDone) {
+      const timer = setTimeout(() => {
+        sessionProjectionDone = true;
+        setIsProjectionSettled(true);
+      }, 3500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
     <section className="home-page">
 
@@ -9,11 +26,16 @@ function Home() {
 
         <div className="hero-text">
 
+          <FilmProjectorAnimation isProjectionSettled={isProjectionSettled} />
+
           <span className="hero-badge">
             🎬 WELCOME TO CINIHUB
           </span>
 
-          <h1>
+          <h1 className={`hero-headline-projected ${isProjectionSettled ? "projection-settled" : "projecting"}`}>
+            {!isProjectionSettled && (
+              <span className="headline-projection-sweep" aria-hidden="true"></span>
+            )}
             Discover Your Next
             <span> Favourite Movie</span>
           </h1>

@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import "./MovieCard.css";
 
 function MovieCard({ movie }) {
-  return (
+  const cardContent = (
     <article className="movie-card">
       <div className="movie-image">
         <img
@@ -27,11 +28,25 @@ function MovieCard({ movie }) {
           <span className="rating" aria-label={`Rating: ${movie.rating} out of 10`}>
             ⭐ {movie.rating}
           </span>
-          <span className="vintage-tag">FEATURE</span>
+          <span className="vintage-tag">VIEW REVIEWS</span>
         </div>
       </div>
     </article>
   );
+
+  if (movie.id) {
+    return (
+      <Link
+        to={`/movies/${movie.id}`}
+        className="movie-card-link"
+        aria-label={`View details and reviews for ${movie.title}`}
+      >
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return cardContent;
 }
 
 export default MovieCard;
