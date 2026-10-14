@@ -1,0 +1,313 @@
+/* ==========================================================================
+   Discussion Card - Vintage Film Dispatch Aesthetic
+   ========================================================================== */
+
+.discussion-card {
+  background: var(--color-card-bg);
+  border: 2px solid rgba(255, 107, 0, 0.35);
+  border-radius: 10px;
+  padding: 24px 26px 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    5px 5px 0px #0c0a08,
+    0 12px 28px rgba(0, 0, 0, 0.65);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  outline: none;
+}
+
+.discussion-card:hover,
+.discussion-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--color-primary-orange);
+  box-shadow:
+    7px 7px 0px #0c0a08,
+    0 18px 36px rgba(255, 107, 0, 0.2);
+}
+
+.discussion-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-burnt-orange), var(--color-golden-yellow), var(--color-primary-orange));
+}
+
+.discussion-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.author-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-golden-yellow) 0%, var(--color-burnt-orange) 85%);
+  border: 2px solid var(--color-warm-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-aachen);
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--color-cinema-black);
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.author-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 14.5px;
+}
+
+.author-name {
+  font-weight: 700;
+  color: var(--color-warm-cream);
+}
+
+.author-handle {
+  color: var(--color-golden-yellow);
+  font-size: 13.5px;
+}
+
+.dispatch-date {
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.card-top-badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-pill {
+  background: rgba(255, 107, 0, 0.16);
+  border: 1px solid var(--color-border-orange);
+  color: var(--color-golden-yellow);
+  font-family: var(--font-poster);
+  letter-spacing: 1px;
+  font-size: 13.5px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.owner-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.owner-action-btn {
+  background: #2b221a;
+  border: 1px solid rgba(255, 245, 233, 0.2);
+  color: var(--color-warm-cream-muted);
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all var(--transition-smooth);
+}
+
+.owner-action-btn:hover {
+  background: var(--color-primary-orange);
+  color: var(--color-cinema-black);
+  border-color: var(--color-golden-yellow);
+}
+
+.owner-action-btn.delete-btn:hover {
+  background: #d32f2f;
+  color: #fff;
+  border-color: #f44336;
+}
+
+.discussion-title {
+  font-family: var(--font-aachen);
+  font-size: 20px;
+  color: var(--color-warm-cream);
+  line-height: 1.35;
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
+  text-shadow: 1px 1px 0px #0c0a08;
+}
+
+.associated-movie-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 194, 71, 0.1);
+  border: 1px dashed rgba(255, 194, 71, 0.4);
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 13.5px;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.film-reel-icon {
+  font-size: 14px;
+}
+
+.tag-label {
+  color: var(--color-golden-yellow);
+  font-family: var(--font-poster);
+  letter-spacing: 1px;
+  font-size: 12.5px;
+}
+
+.movie-focus-link {
+  color: var(--color-warm-cream);
+  font-weight: 700;
+  transition: color var(--transition-smooth);
+}
+
+.movie-focus-link:hover {
+  color: var(--color-primary-orange);
+  text-decoration: underline;
+}
+
+.movie-focus-text {
+  color: var(--color-warm-cream);
+  font-weight: 700;
+}
+
+.discussion-excerpt {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  line-height: 1.65;
+  margin-bottom: 18px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.discussion-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 245, 233, 0.08);
+  flex-wrap: wrap;
+}
+
+.interaction-left,
+.interaction-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.action-pill {
+  background: rgba(23, 19, 16, 0.9);
+  border: 1px solid rgba(255, 107, 0, 0.28);
+  color: var(--color-warm-cream-muted);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.action-pill:hover {
+  border-color: var(--color-golden-yellow);
+  color: var(--color-warm-cream);
+  background: #2b221a;
+}
+
+.like-action-btn.liked {
+  border-color: #ff4d4d;
+  background: rgba(255, 77, 77, 0.15);
+  color: #ff8585;
+}
+
+.like-action-btn:hover {
+  transform: scale(1.05);
+}
+
+.share-action-btn:hover {
+  border-color: var(--color-golden-yellow);
+}
+
+.view-dispatch-btn {
+  background: transparent;
+  color: var(--color-golden-yellow);
+  border: 1px solid var(--color-golden-yellow);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: var(--font-poster);
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  box-shadow: 2px 2px 0px #0c0a08;
+}
+
+.view-dispatch-btn:hover {
+  background: var(--color-golden-yellow);
+  color: var(--color-cinema-black);
+  transform: translateY(-1px);
+  box-shadow: 3px 3px 0px #0c0a08;
+}
+
+@media (max-width: 640px) {
+  .discussion-card {
+    padding: 18px 18px 16px;
+  }
+
+  .discussion-title {
+    font-size: 18px;
+  }
+
+  .discussion-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .interaction-left,
+  .interaction-right {
+    justify-content: space-between;
+  }
+
+  .view-dispatch-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

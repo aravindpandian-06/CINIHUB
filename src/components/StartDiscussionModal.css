@@ -1,0 +1,225 @@
+/* ==========================================================================
+   Start Discussion Modal - Retro Dispatch Submission Box
+   ========================================================================== */
+
+.start-discussion-modal {
+  background: var(--color-card-bg);
+  border: 2px solid var(--color-primary-orange);
+  border-radius: 12px;
+  max-width: 740px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow:
+    8px 8px 0px #0c0a08,
+    0 24px 60px rgba(0, 0, 0, 0.85);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-badge-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.film-reel-badge {
+  font-family: var(--font-poster);
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: var(--color-golden-yellow);
+}
+
+.modal-badge-row h2 {
+  font-family: var(--font-aachen);
+  font-size: 22px;
+  color: var(--color-warm-cream);
+  text-shadow: 1px 1px 0px #0c0a08;
+}
+
+.discussion-form-body {
+  padding: 24px 30px 30px;
+}
+
+.required-star {
+  color: var(--color-primary-orange);
+  font-weight: 700;
+}
+
+.optional-tag {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Movie Search & Selection */
+.movie-selector-group {
+  position: relative;
+}
+
+.movie-search-container {
+  position: relative;
+}
+
+.search-spinner {
+  font-size: 13px;
+  color: var(--color-golden-yellow);
+  padding-top: 6px;
+  font-family: var(--font-poster);
+  letter-spacing: 1px;
+}
+
+.movie-search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #171310;
+  border: 1.5px solid var(--color-primary-orange);
+  border-radius: 6px;
+  margin-top: 6px;
+  max-height: 260px;
+  overflow-y: auto;
+  z-index: 50;
+  list-style: none;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+}
+
+.movie-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 245, 233, 0.08);
+  transition: background var(--transition-smooth);
+}
+
+.movie-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.movie-dropdown-item:hover {
+  background: rgba(255, 107, 0, 0.18);
+}
+
+.dropdown-poster {
+  width: 36px;
+  height: 52px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 107, 0, 0.4);
+}
+
+.dropdown-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-title {
+  color: var(--color-warm-cream);
+  font-weight: 700;
+  font-size: 14.5px;
+}
+
+.dropdown-meta {
+  color: var(--color-golden-yellow);
+  font-size: 12.5px;
+}
+
+.selected-movie-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #171310;
+  border: 1.5px solid var(--color-golden-yellow);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.selected-movie-poster {
+  width: 44px;
+  height: 64px;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 107, 0, 0.4);
+}
+
+.selected-movie-meta {
+  flex: 1;
+}
+
+.selected-movie-meta h4 {
+  font-family: var(--font-aachen);
+  font-size: 16px;
+  color: var(--color-warm-cream);
+}
+
+.selected-year {
+  color: var(--color-golden-yellow);
+  font-size: 13px;
+}
+
+.remove-movie-btn {
+  background: #2b221a;
+  border: 1px solid rgba(255, 245, 233, 0.2);
+  color: #ff8585;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.remove-movie-btn:hover {
+  background: #d32f2f;
+  color: #fff;
+  border-color: #f44336;
+}
+
+.modal-footer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.submit-dispatch-btn {
+  background: linear-gradient(135deg, var(--color-golden-yellow), var(--color-primary-orange));
+  color: var(--color-cinema-black);
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-family: var(--font-poster);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px #0c0a08;
+  transition: all var(--transition-smooth);
+}
+
+.submit-dispatch-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px #0c0a08, 0 0 16px var(--color-golden-yellow);
+}
+
+.submit-dispatch-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .discussion-form-body {
+    padding: 18px 16px 24px;
+  }
+
+  .modal-badge-row h2 {
+    font-size: 19px;
+  }
+}

@@ -1,0 +1,276 @@
+/* ==========================================================================
+   Recommendation Card - Film Club Recommendation Slip
+   ========================================================================== */
+
+.recommendation-card {
+  background: var(--color-card-bg);
+  border: 2px solid rgba(255, 107, 0, 0.35);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  gap: 22px;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    5px 5px 0px #0c0a08,
+    0 12px 28px rgba(0, 0, 0, 0.65);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+  cursor: pointer;
+  outline: none;
+}
+
+.recommendation-card:hover,
+.recommendation-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--color-primary-orange);
+  box-shadow:
+    7px 7px 0px #0c0a08,
+    0 18px 36px rgba(255, 107, 0, 0.22);
+}
+
+.recommendation-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-golden-yellow), var(--color-primary-orange), var(--color-burnt-orange));
+}
+
+.rec-poster-frame {
+  width: 140px;
+  min-width: 140px;
+  height: 200px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  border: 1.5px solid rgba(255, 107, 0, 0.4);
+  box-shadow: 4px 4px 0px #0c0a08;
+  flex-shrink: 0;
+  background: #171310;
+}
+
+.rec-poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.recommendation-card:hover .rec-poster-img {
+  transform: scale(1.04);
+}
+
+.rec-year-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(12, 10, 8, 0.88);
+  border: 1px solid var(--color-golden-yellow);
+  color: var(--color-golden-yellow);
+  font-family: var(--font-poster);
+  font-size: 13px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.rec-content-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rec-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.rec-author-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rec-author-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-golden-yellow) 0%, var(--color-burnt-orange) 85%);
+  border: 1.5px solid var(--color-warm-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-aachen);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--color-cinema-black);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.rec-author-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rec-author-text {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 13.5px;
+  flex-wrap: wrap;
+}
+
+.rec-author-name {
+  font-weight: 700;
+  color: var(--color-warm-cream);
+}
+
+.rec-author-name.filterable:hover {
+  color: var(--color-golden-yellow);
+  text-decoration: underline;
+}
+
+.rec-author-username {
+  color: var(--color-golden-yellow);
+  font-size: 12.5px;
+}
+
+.rec-date {
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.rec-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rec-category-badge {
+  background: rgba(255, 194, 71, 0.14);
+  border: 1px solid var(--color-border-gold);
+  color: var(--color-golden-yellow);
+  font-family: var(--font-poster);
+  letter-spacing: 1px;
+  font-size: 13px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.owner-rec-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.rec-movie-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.rec-movie-title {
+  font-family: var(--font-aachen);
+  font-size: 22px;
+  color: var(--color-warm-cream);
+  line-height: 1.25;
+  text-shadow: 1px 1px 0px #0c0a08;
+}
+
+.rec-mood-badge {
+  background: rgba(23, 19, 16, 0.95);
+  border: 1px dashed rgba(255, 107, 0, 0.4);
+  color: var(--color-warm-cream-muted);
+  font-size: 12.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mood-icon {
+  font-size: 11px;
+}
+
+.rec-quote-text {
+  color: var(--color-warm-cream-muted);
+  font-size: 15px;
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.rec-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 245, 233, 0.08);
+  flex-wrap: wrap;
+}
+
+.rec-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-movie-btn {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.view-film-link-btn {
+  background: linear-gradient(135deg, var(--color-golden-yellow) 0%, var(--color-primary-orange) 100%);
+  color: var(--color-cinema-black);
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-family: var(--font-poster);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 2px 2px 0px #0c0a08;
+  transition: all var(--transition-smooth);
+}
+
+.view-film-link-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 3px 3px 0px #0c0a08, 0 0 10px var(--color-golden-yellow);
+}
+
+@media (max-width: 768px) {
+  .recommendation-card {
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .rec-poster-frame {
+    width: 100%;
+    height: 240px;
+  }
+
+  .rec-movie-title {
+    font-size: 20px;
+  }
+}

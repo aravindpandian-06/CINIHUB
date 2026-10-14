@@ -1,0 +1,375 @@
+/* ==========================================================================
+   Monthly Cinephile Awards - The CINIHUB Academy
+   ========================================================================== */
+
+.monthly-awards-section {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.period-selector-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.period-selector-box label {
+  font-family: var(--font-poster);
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--color-golden-yellow);
+}
+
+.vintage-select-period {
+  background: #1f1a15;
+  border: 1.5px solid var(--color-golden-yellow);
+  color: var(--color-golden-yellow);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-family: var(--font-poster);
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.period-status-banner {
+  background: #171310;
+  border: 1px solid rgba(255, 194, 71, 0.4);
+  border-radius: 8px;
+  padding: 14px 20px;
+}
+
+.active-voting-callout,
+.archived-winners-callout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--color-warm-cream-muted);
+  line-height: 1.5;
+}
+
+.ballot-box-icon,
+.laurel-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.active-voting-callout strong {
+  color: var(--color-golden-yellow);
+}
+
+.archived-winners-callout strong {
+  color: var(--color-warm-cream);
+}
+
+/* Awards Category Clusters */
+.awards-layout-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.awards-category-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cluster-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-primary-orange);
+}
+
+.cluster-icon {
+  font-size: 22px;
+}
+
+.cluster-header h3 {
+  font-family: var(--font-aachen);
+  font-size: 22px;
+  color: var(--color-warm-cream);
+  text-shadow: 1px 1px 0px #0c0a08;
+}
+
+.cluster-tag {
+  font-family: var(--font-poster);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  background: rgba(255, 107, 0, 0.18);
+  border: 1px solid var(--color-border-orange);
+  color: var(--color-golden-yellow);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: auto;
+}
+
+.awards-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 22px;
+}
+
+.cinephile-award-card {
+  background: var(--color-card-bg);
+  border: 2px solid rgba(255, 194, 71, 0.35);
+  border-radius: 10px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-shadow:
+    6px 6px 0px #0c0a08,
+    0 14px 32px rgba(0, 0, 0, 0.65);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.cinephile-award-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-golden-yellow);
+  box-shadow:
+    8px 8px 0px #0c0a08,
+    0 20px 42px rgba(255, 194, 71, 0.2);
+}
+
+.cinephile-award-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-burnt-orange), var(--color-golden-yellow), var(--color-primary-orange));
+}
+
+.award-header-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.award-category-title {
+  font-family: var(--font-aachen);
+  font-size: 17px;
+  color: var(--color-golden-yellow);
+  letter-spacing: 0.5px;
+}
+
+.award-type-badge {
+  font-family: var(--font-poster);
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.award-type-badge.community_voted {
+  background: rgba(255, 194, 71, 0.18);
+  border: 1px solid var(--color-golden-yellow);
+  color: var(--color-golden-yellow);
+}
+
+.award-type-badge.editorial_choice {
+  background: rgba(255, 107, 0, 0.18);
+  border: 1px solid var(--color-primary-orange);
+  color: var(--color-primary-orange);
+}
+
+.award-recipient-row {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.award-poster-box {
+  width: 100px;
+  min-width: 100px;
+  height: 146px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  border: 1.5px solid rgba(255, 194, 71, 0.5);
+  box-shadow: 3px 3px 0px #0c0a08;
+  flex-shrink: 0;
+  background: #171310;
+}
+
+.award-poster-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.award-year-tag {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: rgba(12, 10, 8, 0.9);
+  color: var(--color-golden-yellow);
+  font-family: var(--font-poster);
+  font-size: 11.5px;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.award-avatar-box {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-golden-yellow), var(--color-burnt-orange));
+  border: 2px solid var(--color-warm-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-aachen);
+  font-size: 26px;
+  color: var(--color-cinema-black);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.award-avatar-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.award-details-main {
+  flex: 1;
+}
+
+.award-film-heading {
+  font-family: var(--font-aachen);
+  font-size: 22px;
+  color: var(--color-warm-cream);
+  margin-bottom: 2px;
+  line-height: 1.25;
+}
+
+.recipient-label {
+  font-size: 13px;
+  color: var(--color-golden-yellow);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.award-movie-link {
+  font-size: 13px;
+  color: var(--color-primary-orange);
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 8px;
+  transition: color var(--transition-smooth);
+}
+
+.award-movie-link:hover {
+  color: var(--color-golden-yellow);
+  text-decoration: underline;
+}
+
+.award-criteria-box {
+  background: #171310;
+  border-left: 2px solid var(--color-golden-yellow);
+  padding: 6px 10px;
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 8px;
+}
+
+.criteria-label {
+  font-family: var(--font-poster);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--color-golden-yellow);
+  display: block;
+}
+
+.award-criteria-box p {
+  color: var(--color-warm-cream-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.award-citation-text {
+  font-size: 13.5px;
+  font-style: italic;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Footer & Voting */
+.award-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 245, 233, 0.08);
+}
+
+.award-votes-tally {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.votes-count-number {
+  font-family: var(--font-aachen);
+  font-size: 20px;
+  color: var(--color-golden-yellow);
+}
+
+.votes-label {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+}
+
+.award-vote-btn {
+  background: linear-gradient(135deg, var(--color-golden-yellow), var(--color-primary-orange));
+  color: var(--color-cinema-black);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 5px;
+  font-family: var(--font-poster);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #0c0a08;
+  transition: all var(--transition-smooth);
+}
+
+.award-vote-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0px #0c0a08, 0 0 12px var(--color-golden-yellow);
+}
+
+.award-vote-btn.voted {
+  background: #2b221a;
+  border: 1.5px solid var(--color-golden-yellow);
+  color: var(--color-golden-yellow);
+  box-shadow: 0 0 10px rgba(255, 194, 71, 0.3);
+}
+
+@media (max-width: 768px) {
+  .awards-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .award-recipient-row {
+    flex-direction: column;
+  }
+
+  .award-poster-box {
+    width: 100%;
+    height: 200px;
+  }
+}

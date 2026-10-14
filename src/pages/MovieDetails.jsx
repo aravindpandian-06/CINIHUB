@@ -328,6 +328,23 @@ function MovieDetails() {
             <div className="hero-synopsis-block">
               <h3 className="synopsis-heading">FEATURE SYNOPSIS</h3>
               <p className="synopsis-text">{movie.overview}</p>
+
+              <div className="movie-community-shortcuts" style={{ marginTop: "18px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <Link
+                  to={`/community?tab=discussions&movieId=${movie.id}`}
+                  className="vintage-tag"
+                  style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px" }}
+                >
+                  💬 Discuss in Film Society →
+                </Link>
+                <Link
+                  to={`/community?tab=recommendations&movieId=${movie.id}`}
+                  className="vintage-tag"
+                  style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px" }}
+                >
+                  🎯 Film Recommendations →
+                </Link>
+              </div>
             </div>
 
           </div>
